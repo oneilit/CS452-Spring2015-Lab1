@@ -28,12 +28,21 @@ window.onload = function init()
     gl.bufferData(gl.ARRAY_BUFFER, flatten(pointsArray), gl.STATIC_DRAW);
 
     // Associate our shader variables with our data buffer
-
+    index=0;
+    canvas.addEventListener("click", function(){index=index+1; if (index==4){index=1;}});
     render();
 };
 
 
 function render() {
     gl.clear( gl.COLOR_BUFFER_BIT );
-    gl.drawArrays(gl.POINTS, 0, numPoints);
+    if (index == 1){
+        gl.drawArrays(gl.LINE_LOOP, 0, 0, 0, 1, 1, 1, 1, 0);
+    }
+    else if (index == 2){
+        gl.drawArrays(gl.LINE_LOOP, 0, 0, 0.5, 1, 1, 0);
+    }
+    else{
+        gl.drawArrays(gl.LINE_LOOP, 0, 0, 0, 0.5, 0.5, 1, 1, 0.5, 1, 0)
+    }
 }

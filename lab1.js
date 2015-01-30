@@ -22,6 +22,10 @@ window.onload = function init()
     gl.useProgram( program );
     
     // Load the data into the GPU
+    var buffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
+    
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(pointsArray), gl.STATIC_DRAW);
 
     // Associate our shader variables with our data buffer
 
@@ -31,4 +35,5 @@ window.onload = function init()
 
 function render() {
     gl.clear( gl.COLOR_BUFFER_BIT );
+    gl.drawArrays(gl.POINTS, 0, numPoints);
 }

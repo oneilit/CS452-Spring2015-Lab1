@@ -9,7 +9,7 @@ window.onload = function init()
     gl = WebGLUtils.setupWebGL( canvas );
     if ( !gl ) { alert( "WebGL isn't available" ); }
 
-
+    var tri_vertices = new Float32Array([0, 0, 0, 1, 1, 1, 1, 0])
     //
     //  Configure WebGL
     //
@@ -24,9 +24,12 @@ window.onload = function init()
     // Load the data into the GPU
     var buffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-    
-    gl.bufferData(gl.ARRAY_BUFFER, flatten(pointsArray), gl.STATIC_DRAW);
+    gl.bufferData(gl.ARRAY_BUFFER, tri_vertices, gl.STATIC_DRAW);
 
+    var vPosition = gl.getAttribLocation( program, "vPosition");
+    gl.vertexAttribPointer( vPosition, 2, gl.FLOAT, false, 0, 0);
+    gl.enableVertexAttribArray(vPosition);
+    
     // Associate our shader variables with our data buffer
     index=0;
     canvas.addEventListener("click", function(){index=index+1; if (index==4){index=1;}});
@@ -37,7 +40,7 @@ window.onload = function init()
 function render() {
     gl.clear( gl.COLOR_BUFFER_BIT );
     if (index == 1){
-        gl.drawArrays(gl.LINE_LOOP, 0, 0, 0, 1, 1, 1, 1, 0);
+        gl.drawArrays(gl.LINE_LOOP, 0, 3);
     }
     else if (index == 2){
         gl.drawArrays(gl.LINE_LOOP, 0, 0, 0.5, 1, 1, 0);

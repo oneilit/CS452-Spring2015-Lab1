@@ -9,7 +9,7 @@ window.onload = function init()
     gl = WebGLUtils.setupWebGL( canvas );
     if ( !gl ) { alert( "WebGL isn't available" ); }
 
-    var tri_vertices = new Float32Array([0, 0, 0, 1, 1, 1, 1, 0])
+    var tri_vertices = new Float32Array([0, 0, 0, 0.75, 0.75, 0.75])
     //
     //  Configure WebGL
     //
@@ -40,7 +40,7 @@ window.onload = function init()
 function render() {
     gl.clear( gl.COLOR_BUFFER_BIT );
     if (index == 1){
-        gl.drawArrays(gl.LINE_LOOP, 0, 3);
+        gl.drawArrays(gl.TRIANGLES, 0, 3);
     }
     else if (index == 2){
         gl.drawArrays(gl.LINE_LOOP, 0, 0, 0.5, 1, 1, 0);

@@ -3,7 +3,7 @@ Iver O'Neil
 1/30/15
 
 Description:
-The initial canvas will display the first shape. A left mouse click will cause the second shape to be 
-displayed, another left mouse click will result in the third shape to be displayed, and finally another
-left click will display the first shape. So every time there is a left mouse click, the next shape will
-be displayed.
+The initial, black canvas will display the first shape, a blue triangle. A left mouse click will cause
+the second shape, a square, to be displayed, another left mouse click will result in the third shape, a
+pentagon, to be displayed, and finally another left click will display the first shape, the triangle, again. So every time
+there is a left mouse click, the next shape will be displayed.

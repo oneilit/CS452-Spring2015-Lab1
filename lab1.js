@@ -1,4 +1,4 @@
-
+// Iver O'Neil 0288167 Lab1
 var gl;
 var points;
 var index;
